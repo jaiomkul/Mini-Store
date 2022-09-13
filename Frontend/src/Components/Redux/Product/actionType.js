@@ -1,0 +1,10 @@
+// Product Page
+export const PRODUCT_LOADING = "IS_LOADING";
+export const PRODUCT_SUCCESS = "STORE_DATA";
+export const PRODUCT_ERROR = "IS_ERROR";
+
+// Product Details Page
+
+export const SINGLE_PRODUCT_LOADING = "SINGLE_PRODUCT_LOADING";
+export const SINGLE_PRODUCT_SUCCESS = "SINGLE_PRODUCT_SUCCESS";
+export const SINGLE_PRODUCT_ERROR = "SINGLE_PRODUCT_ERROR";
