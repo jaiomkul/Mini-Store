@@ -47,3 +47,5 @@ export const Shop = () => {
     </Box>
   );
 };
+
+//shop page navbar

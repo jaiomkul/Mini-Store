@@ -11,6 +11,7 @@ export const Home = () => {
   const products = useSelector((state) => state.product.products);
   const error = useSelector((state) => state.product.error);
   // console.log(products);
+
   const dispatch = useDispatch();
   useEffect(() => {
     if (products?.length === 0) {

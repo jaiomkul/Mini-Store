@@ -304,7 +304,7 @@ export const Navbar = () => {
             </DrawerContent>
           </Drawer>
         </Show>
-        {/* ------Full Navbar ----- */}
+        {/* ------Full Navbar ------ */}
       </HStack>
     </Box>
   );

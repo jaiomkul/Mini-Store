@@ -24,3 +24,4 @@ export const removeFromCart = (payload) => ({
   type: REMOVE_FROM_CART,
   payload,
 });
+//cart action

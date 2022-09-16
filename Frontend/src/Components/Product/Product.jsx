@@ -36,3 +36,5 @@ export const Product = ({ product }) => {
     </Box>
   );
 };
+
+//product data
