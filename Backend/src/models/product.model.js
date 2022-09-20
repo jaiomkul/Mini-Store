@@ -10,8 +10,8 @@ const productSchema = new mongoose.Schema(
     final_price: { type: Number, required: true },
     images: { type: [String], required: true },
     sizes: { type: [Number], required: true },
-    reviews: { type: [Number], required: true },
-    rating: { type: [Number], required: true },
+    reviews: { type: Number, required: true },
+    rating: { type: Number, required: true },
   },
   {
     versionKey: false,

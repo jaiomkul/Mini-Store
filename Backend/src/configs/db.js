@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const connect = () => {
   return mongoose.connect(
-    "mongodb+srv://jpg:jpg123@cluster0.wsmkwff.mongodb.net/?retryWrites=true&w=majority"
+    "mongodb+srv://jpg:jpg123@ok.dxdgipu.mongodb.net/mini?retryWrites=true&w=majority"
   );
 };
 
