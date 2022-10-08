@@ -45,7 +45,7 @@ export const Navbar = () => {
   ];
 
   const cart = useSelector((state) => state.cart.cart);
-  console.log(cart);
+  // console.log(cart);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
