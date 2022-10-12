@@ -1,6 +1,7 @@
 const express = require("express");
 
 const Product = require("../models/product.model");
+const ApiFeatures = require("../utils/apiFeatures");
 
 const router = express.Router();
 
@@ -12,28 +13,68 @@ query => req.query
 
 router.get("/", async (req, res) => {
   try {
-    const page = req.query.page || 1;
     const pagesize = req.query.pagesize || 12;
-    // const pagesize = req.query.pagesize && 12;
-    // const pagesize  = 10 && 12 // undefind;
-    // const pagesize  = 12 && 12 // undefind; data(true )output
 
-    // if page 1 then data should be from 1 to 12;
-    // if page 1 then data should be from 13 to 24;
+    // Api Feature query
+    const apiFeature = new ApiFeatures(Product.find(), req.query)
+      .search()
+      .filter()
+      .pagination(pagesize);
 
-    const skip = (page - 1) * pagesize; // 1-1 =0, 0*anything = 0;
-
-    const products = await Product.find()
-      .skip(skip)
-      .limit(pagesize)
-      .lean()
-      .exec();
+    //Final output
+    const products = await apiFeature.query.lean().exec();
 
     const totalPages = Math.ceil(
       (await Product.find().countDocuments()) / pagesize
     );
 
     return res.status(200).send({ products, totalPages });
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id).lean().exec();
+
+    return res.status(200).send({ product });
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
+});
+
+router.post("/", async (req, res) => {
+  try {
+    const product = await Product.create(req.body);
+
+    return res.status(201).send(product);
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
+});
+
+router.patch("/:id", async (req, res) => {
+  try {
+    const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    })
+      .lean()
+      .exec();
+
+    return res.status(200).send({ product });
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const product = await Product.findByIdAndDelete(req.params.id)
+      .lean()
+      .exec();
+
+    return res.status(200).send({ product });
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
