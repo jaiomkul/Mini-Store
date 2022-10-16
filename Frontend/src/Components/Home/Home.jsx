@@ -41,7 +41,7 @@ export const Home = () => {
           >
             {products.length > 0 &&
               products.map((product) => {
-                return <Product key={product.id} product={product}></Product>;
+                return <Product key={product._id} product={product}></Product>;
               })}
           </Grid>
         </Box>
