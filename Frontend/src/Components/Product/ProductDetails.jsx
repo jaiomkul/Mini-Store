@@ -22,16 +22,16 @@ export const ProductDetails = () => {
   const loading = useSelector((state) => state.product.loading);
   const singleProduct = useSelector((state) => state.product.singleProduct);
   const error = useSelector((state) => state.product.error);
-  const { _id } = useParams();
+  const { id } = useParams();
   const dispatch = useDispatch();
 
   const [size, setSize] = useState(null);
 
   useEffect(() => {
-    if (_id) {
-      dispatch(getSingleProductData(_id));
+    if (id) {
+      dispatch(getSingleProductData(id));
     }
-  }, [dispatch, _id]);
+  }, [dispatch, id]);
   //console.log(singleProduct);
 
   const handelCart = () => {
@@ -50,7 +50,7 @@ export const ProductDetails = () => {
     return <h1>Something went wrong...</h1>;
   }
   if (Object.keys(singleProduct).length === 0) {
-    return <h2>Product {_id} not found</h2>;
+    return <h2>Product {id} not found</h2>;
   }
   return (
     <Box m={8}>
