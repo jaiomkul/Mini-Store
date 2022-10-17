@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Product = ({ product }) => {
-  const { id, name, color, gender, original_price, final_price, images } =
+  const { _id, name, color, gender, original_price, final_price, images } =
     product;
 
   const [img, setImg] = useState(images[0]);
@@ -21,7 +21,7 @@ export const Product = ({ product }) => {
     <Box
       onMouseMove={show1Image}
       onMouseLeave={leave1Image}
-      onClick={() => navigate(`/shop/${id}`)}
+      onClick={() => navigate(`/shop/${_id}`)}
     >
       <Image src={img} alt={name + "Shoe"} />
       <Text>{name + " | " + color + " | " + gender}</Text>

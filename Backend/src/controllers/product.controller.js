@@ -28,7 +28,7 @@ router.get("/", async (req, res) => {
       (await Product.find().countDocuments()) / pagesize
     );
 
-    return res.status(200).send({ products, totalPages });
+    return res.status(200).send(products);
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }

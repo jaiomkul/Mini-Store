@@ -24,7 +24,7 @@ const handelError = () => ({
 
 export const getData = () => (dispatch) => {
   dispatch(handelLoading());
-  fetch("http://localhost:8080/products")
+  fetch("http://localhost:4040/products")
     .then((res) => res.json())
     .then((res) => dispatch(handelSuccess(res)))
     .catch(() => dispatch(handelError()));
@@ -47,7 +47,7 @@ const handelSingleProductError = () => ({
 
 export const getSingleProductData = (id) => (dispatch) => {
   dispatch(handelSingleProductLoading());
-  fetch(`http://localhost:8080/products/${id}`)
+  fetch(`http://localhost:4040/products/${id}`)
     .then((res) => res.json())
     .then((res) => dispatch(handelSingleProductSuccess(res)))
     .catch(() => dispatch(handelSingleProductError()));

@@ -32,7 +32,7 @@ export const ProductDetails = () => {
       dispatch(getSingleProductData(id));
     }
   }, [dispatch, id]);
-  //console.log(singleProduct);
+  console.log(singleProduct);
 
   const handelCart = () => {
     let payload = {
