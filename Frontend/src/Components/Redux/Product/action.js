@@ -24,7 +24,7 @@ const handelError = () => ({
 
 export const getData = () => (dispatch) => {
   dispatch(handelLoading());
-  fetch(`https://mini-store.herokuapp.com/products`)
+  fetch(`https://mini-store-js.onrender.com/products`)
     .then((res) => res.json())
     .then((res) => dispatch(handelSuccess(res.products)))
     .catch(() => dispatch(handelError()));
@@ -47,7 +47,7 @@ const handelSingleProductError = () => ({
 
 export const getSingleProductData = (id) => (dispatch) => {
   dispatch(handelSingleProductLoading());
-  fetch(`https://mini-store.herokuapp.com/products/${id}`)
+  fetch(`https://mini-store-js.onrender.com/products/${id}`)
     .then((res) => res.json())
     .then((res) => dispatch(handelSingleProductSuccess(res)))
     .catch(() => dispatch(handelSingleProductError()));
